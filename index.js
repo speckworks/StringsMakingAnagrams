@@ -1,14 +1,15 @@
 function makeAnagram(a, b) {
-    let deletions  = 0;
-//define process for iterating through string
-const process = (character) => {
-};
-    //compare two strings 
-for (let i = 0; i < a.length; i++) {
-    process(a[i]);
+        const aLen = a.length;
+    const bLen = b.length;
+    let deletions = 0;
+    let repeats = 0;
+    for (let i = 0; i < Math.max(aLen, bLen); i++) {
+        if (a.includes(a[i]) && b.includes(a[i])) {
+            b = b.replace(a[i], '');
+            repeats++;
+        }
     }
-    //if we have to delete a character deletions++
+    deletions = (aLen - repeats) + (bLen - repeats);
+    return deletions;
 }
-
-
-makeAnagram("hello", "hell");
+makeAnagram("cde", "abc");
